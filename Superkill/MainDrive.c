@@ -45,9 +45,9 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT Driver, PUNICODE_STRING RegPath)
 
     PLDR_DATA_TABLE_ENTRY64 ldrDataTable;
     ldrDataTable = (PLDR_DATA_TABLE_ENTRY64)Driver->DriverSection;
-    ldrDataTable->Flags |= 0x20;//Fuck MmVerifyCallbackFunction
+    ldrDataTable->Flags |= 0x20;//Jump MmVerifyCallbackFunction
 
-    // Ö§³Ö¶¯Ì¬Ð¶ÔØ¡£
+
     Driver->DriverUnload = DriverUnload;
 
     DbgPrint((Sys_Version));

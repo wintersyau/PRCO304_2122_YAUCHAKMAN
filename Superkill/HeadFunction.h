@@ -60,6 +60,11 @@ typedef struct _LDR_DATA_TABLE_ENTRY64
 
 #pragma region ProcessProtectHead
 
+/// <summary>
+/// Thread Id Convert To Handle
+/// </summary>
+/// <param name="Pid"></param>
+/// <returns></returns>
 PHANDLE PidToHandle(ULONG Pid)
 {
 	OBJECT_ATTRIBUTES ObjectAttributes;
@@ -75,6 +80,11 @@ PHANDLE PidToHandle(ULONG Pid)
 	return ThisHandle;
 }
 
+/// <summary>
+/// Thread ID ConvertTo C++ Eprocess (KMDF Type)
+/// </summary>
+/// <param name="Pid"></param>
+/// <returns></returns>
 PEPROCESS PidToEprocess(ULONG Pid)
 {
 	PEPROCESS pEProc;
@@ -83,6 +93,11 @@ PEPROCESS PidToEprocess(ULONG Pid)
 	return pEProc;
 }
 
+/// <summary>
+/// Kernel Kill Process (Target Ram Delete)
+/// </summary>
+/// <param name="PID"></param>
+/// <returns></returns>
 BOOLEAN ZeroKill(ULONG PID)   //X32  X64
 {
 	DbgPrint("KillProcess:%i", PID);
@@ -95,23 +110,23 @@ BOOLEAN ZeroKill(ULONG PID)   //X32  X64
 	if (NT_SUCCESS(ntStatus))
 	{
 		PKAPC_STATE PKAPC_STATEpKs = (PKAPC_STATE)ExAllocatePool(NonPagedPool, sizeof(PKAPC_STATE));
-		KeStackAttachProcess(Eprocess, PKAPC_STATEpKs);//Attach进程虚拟空间
-		for (i = 0; i <= 0x7fffffff; i += 0x1000)
+		KeStackAttachProcess(Eprocess, PKAPC_STATEpKs);//Attach Target Handle 
+		for (i = 0; i <= 0x7fffffff; i += 0x1000) //Enumeration Ram Address IntPtr.Zero To 0x7fffffff 
 		{
-			if (MmIsAddressValid((PVOID)i))
+			if (MmIsAddressValid((PVOID)i))//Check Is Can Write Address
 			{
 				_try
 				{
 				   ProbeForWrite((PVOID)i,0x1000,sizeof(ULONG));
-				   memset((PVOID)i,0xcc,0x1000);
+				   memset((PVOID)i,0xcc,0x1000); //Set Addresss =  0XCC
 				}_except(1) { continue; }
 			}
 			else {
-				if (i > 0x1000000)  //填这么多足够破坏进程数据了  
+				if (i > 0x1000000)  //Write Size Limit 
 					break;
 			}
 		}
-		KeUnstackDetachProcess(PKAPC_STATEpKs);
+		KeUnstackDetachProcess(PKAPC_STATEpKs);//UNAttach
 		if (ObOpenObjectByPointer((PVOID)Eprocess, 0, NULL, 0, NULL, KernelMode, &handle) != STATUS_SUCCESS)
 			return FALSE;
 		ZwTerminateProcess((HANDLE)handle, STATUS_SUCCESS);
@@ -121,7 +136,10 @@ BOOLEAN ZeroKill(ULONG PID)   //X32  X64
 	return FALSE;
 }
 
-//64位别用这个直接蓝屏
+/// <summary>
+/// Kernel TerminateProcess (KMDF Process Terminate)
+/// </summary>
+/// <param name="Pid"></param>
 
 void KillProcessByTerminate(ULONG Pid)
 {
@@ -144,6 +162,11 @@ void KillProcessByTerminate(ULONG Pid)
 
 }
 
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="Pid"></param>
 void KillProcessByZeroMemory(ULONG Pid)
 {
 	NTSTATUS status;
@@ -213,13 +236,20 @@ INT PauseAndKeepProcess(ULONG Pid, INT Check)
 
 	if (Check == 0)
 	{
-		State = PsResumeProcess(CurrentProcess);//回复
+		State = PsResumeProcess(CurrentProcess);//Kernel Pause Process
 	}
 	else
 	{
-		State = PsSuspendProcess(CurrentProcess);//挂起
+		State = PsSuspendProcess(CurrentProcess);//Kernel Keep Process
 	}
 }
+
+
+/// <summary>
+/// Kernel Set Process Access
+/// </summary>
+/// <param name="Pid"></param>
+/// <param name="Level"></param>
 
 void SetProcessLevel(ULONG Pid, ULONG Level)
 {
@@ -236,11 +266,16 @@ void SetProcessLevel(ULONG Pid, ULONG Level)
 	_TP.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
 
 	PULONG pLength = 0;
-	Status = NtAdjustPrivilegesToken(Token, 0, &_TP, sizeof(_TP), NULL, &_TP.Privileges[0].Luid.LowPart);
+	Status = NtAdjustPrivilegesToken(Token, 0, &_TP, sizeof(_TP), NULL, &_TP.Privileges[0].Luid.LowPart);//One Access Has Benn Using
 
 	return;
 }
 
+/// <summary>
+/// Kernel Delete File
+/// </summary>
+/// <param name="uFilePath"></param>
+/// <returns></returns>
 NTSTATUS FileDelete(UNICODE_STRING uFilePath)
 {
 	NTSTATUS status = STATUS_SUCCESS;
@@ -264,6 +299,11 @@ NTSTATUS FileDelete(UNICODE_STRING uFilePath)
 
 #pragma endregion
 
+/// <summary>
+/// Get String Length
+/// </summary>
+/// <param name="str"></param>
+/// <returns></returns>
 int Getlen(const char* str)
 {
 	int len = 0;
@@ -273,10 +313,15 @@ int Getlen(const char* str)
 	return len;
 }
 
+/// <summary>
+/// String To Integer
+/// </summary>
+/// <param name="s"></param>
+/// <returns></returns>
 int Kernel_Atoi(const char* s)
 {
 	BOOLEAN negative = FALSE;
-	int result = 0;//存放中间变量
+	int result = 0;
 	int len = Getlen(s);
 	int limit = -2147483647;
 	int i = 0;
@@ -315,6 +360,10 @@ int Kernel_Atoi(const char* s)
 	return negative ? result : -result;
 }
 
+/// <summary>
+/// Check Ring 3 Program Order
+/// </summary>
+/// <param name="Buffer"></param>
 void ProcessCommand(PVOID Buffer)
 {
 	int bi = 0;
@@ -338,36 +387,41 @@ void ProcessCommand(PVOID Buffer)
 
 		if (GetFristChar == 'U')
 		{
+			//Process UPAccess U{PID}
 			DbgPrint("TargetProcess:%i", Target);
 			SetProcessLevel(Target, SE_DEBUG_PRIVILEGE);
 		}
 		else
 			if (GetFristChar == 'K')
 			{
+				//Process Kill Z{PID} (Process) Terminate Process Mode1
 				DbgPrint("TargetProcess:%i", Target);
 				KillProcessByTerminate(Target);
 			}
 		if (GetFristChar == 'Z')
 		{
+			//Process RamErase Z{PID} Terminate Process Mode2
 			DbgPrint("TargetProcess:%i", Target);
 			ZeroKill(Target);
 		}
 		else
 			if (GetFristChar == 'S')
 			{
+				//Pause Process S{PID}
 				DbgPrint("TargetProcess:%i", Target);
 				PauseAndKeepProcess(Target, 1);
 			}
 			else
 				if (GetFristChar == 'M')
 				{
+					//Keep Process M{PID}
 					DbgPrint("TargetProcess:%i", Target);
 					PauseAndKeepProcess(Target, 0);
 				}
 	}
 	else
 	{
-		
+		//File Delete F{Path}
 		char BigCache[255];
 
 		while (*GetAdd)
@@ -403,7 +457,12 @@ void ProcessCommand(PVOID Buffer)
 
 }
 
-
+/// <summary>
+/// Listen IOControl Message
+/// </summary>
+/// <param name="DeviceObject"></param>
+/// <param name="Irp"></param>
+/// <returns></returns>
 NTSTATUS MyDispatch(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 {
 	NTSTATUS Status = STATUS_SUCCESS;
@@ -423,9 +482,9 @@ NTSTATUS MyDispatch(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 			PVOID buffer = Irp->AssociatedIrp.SystemBuffer;
 			ULONG inLen = irpStack->Parameters.DeviceIoControl.InputBufferLength;
 			ULONG outLen = irpStack->Parameters.DeviceIoControl.OutputBufferLength;
-			//KdBreakPoint();// 断点设置，使用windbg调试时可以打开
+			//KdBreakPoint(); //Set One BreakPoint To WinDbg
 
-			//控制码由这个宏函数CTL_CODE创建
+			//Check Control Code == IOCTL_SEND_AND_REC_STR
 			if (irpStack->Parameters.DeviceIoControl.IoControlCode == IOCTL_SEND_AND_REC_STR)
 			{
 				if (inLen > 0)
@@ -460,20 +519,20 @@ NTSTATUS MyDispatch(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 			}
 			else
 			{
-				// 其他控制码请求，一律返回非法参数错误。
+				// IS INVALID PARAMETER
 				Status = STATUS_INVALID_PARAMETER;
 			}
 		}
 	}
 
-	// KdBreakPoint(); // 断点设置，使用windbg调试时可以打开
+	KdBreakPoint(); //Set One BreakPoint To WinDbg
 
-	// 第4步，结束请求
-	// 这个Informatica用来记录这次返回到底使用了多少输出空间
+   
+   // This Information Can Be Return Cache Size
 	Irp->IoStatus.Information = ret_len;
-	// 用于记录这个请求的完成状态
+	// Recv Io Complete State 
 	Irp->IoStatus.Status = Status;
-	// 用于结束这个请求
+	// End The Request
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 	return Status;
 }

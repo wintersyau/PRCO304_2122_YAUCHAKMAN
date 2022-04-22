@@ -1,0 +1,80 @@
+;
+; ProcessMonitor.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=ProcessListen.cat
+DriverVer = 04/22/2022,17.37.12.409
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+ProcessListen_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+ProcessListen.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTARM64
+
+[Standard.NTARM64]
+%ProcessListen.DeviceDesc%=ProcessListen_Device, Root\ProcessListen ; TODO: edit hw-id
+
+[ProcessListen_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+ProcessListen.sys
+
+;-------------- Service installation
+[ProcessListen_Device.NT.Services]
+AddService =ProcessListen,%SPSVCINST_ASSOCSERVICE%, ProcessListen_Service_Inst
+
+; -------------- ProcessMonitor driver install sections
+[ProcessListen_Service_Inst]
+DisplayName    = %ProcessListen.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ProcessListen.sys
+
+;
+;--- ProcessMonitor_Device Coinstaller installation ------
+;
+
+[ProcessListen_Device.NT.CoInstallers]
+AddReg=ProcessListen_Device_CoInstaller_AddReg
+CopyFiles=ProcessListen_Device_CoInstaller_CopyFiles
+
+[ProcessListen_Device_CoInstaller_AddReg]
+;
+
+
+[ProcessListen_Device_CoInstaller_CopyFiles]
+;
+
+
+[ProcessListen_Device.NT.Wdf]
+KmdfService = ProcessListen, ProcessListen_wdfsect
+[ProcessListen_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "ProcessListen Installation Disk"
+ProcessListen.DeviceDesc = "ProcessListen Device"
+ProcessListen.SVCDESC = "ProcessListen Service"

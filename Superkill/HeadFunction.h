@@ -4,16 +4,14 @@
 
 PDEVICE_OBJECT CurrentDrive = NULL;
 
-// 设备名对应的符号链接名，用于暴露给应用层。符号链接一般都是在\??\路径下
-#define MY_DEVOBJ_SYB_NAME (L"\\??\\Yueding1007")
-// 设备一般都是位于 \Device\这个路径下的
-#define MY_DEVOBJ_NAME (L"\\Device\\Yueding1007")
+
+#define MY_DEVOBJ_SYB_NAME (L"\\??\\Winters1007")
+#define MY_DEVOBJ_NAME (L"\\Device\\Winters1007")
 
 NTKERNELAPI NTSTATUS PsSuspendProcess(PEPROCESS Process);
 NTKERNELAPI NTSTATUS PsResumeProcess(PEPROCESS Process);
 NTKERNELAPI UCHAR* PsGetProcessImageFileName(__in PEPROCESS Process);
-
-NTKERNELAPI HANDLE PsGetProcessInheritedFromUniqueProcessId(IN PEPROCESS Process);//未公开
+NTKERNELAPI HANDLE PsGetProcessInheritedFromUniqueProcessId(IN PEPROCESS Process);
 
 #define IOCTL_SEND_AND_REC_STR\
 	CTL_CODE(FILE_DEVICE_UNKNOWN\
@@ -24,7 +22,6 @@ NTKERNELAPI HANDLE PsGetProcessInheritedFromUniqueProcessId(IN PEPROCESS Process
 #define PROCESS_VM_OPERATION      0x0008  
 #define PROCESS_VM_READ           0x0010  
 #define PROCESS_VM_WRITE          0x0020  
-
 
 #define Sys_Version "2.1.12"
 
@@ -61,7 +58,7 @@ typedef struct _LDR_DATA_TABLE_ENTRY64
 #pragma region ProcessProtectHead
 
 /// <summary>
-/// Thread Id Convert To Handle
+/// Thread Id convert to handle
 /// </summary>
 /// <param name="Pid"></param>
 /// <returns></returns>
@@ -81,7 +78,7 @@ PHANDLE PidToHandle(ULONG Pid)
 }
 
 /// <summary>
-/// Thread ID ConvertTo C++ Eprocess (KMDF Type)
+/// Thread ID convert to C++ Eprocess (KMDF Type)
 /// </summary>
 /// <param name="Pid"></param>
 /// <returns></returns>
@@ -94,7 +91,7 @@ PEPROCESS PidToEprocess(ULONG Pid)
 }
 
 /// <summary>
-/// Kernel Kill Process (Target Ram Delete)
+/// Kernel kill the process (Target Ram Delete)
 /// </summary>
 /// <param name="PID"></param>
 /// <returns></returns>
@@ -110,23 +107,23 @@ BOOLEAN ZeroKill(ULONG PID)   //X32  X64
 	if (NT_SUCCESS(ntStatus))
 	{
 		PKAPC_STATE PKAPC_STATEpKs = (PKAPC_STATE)ExAllocatePool(NonPagedPool, sizeof(PKAPC_STATE));
-		KeStackAttachProcess(Eprocess, PKAPC_STATEpKs);//Attach Target Handle 
+		KeStackAttachProcess(Eprocess, PKAPC_STATEpKs);//Attach target handle 
 		for (i = 0; i <= 0x7fffffff; i += 0x1000) //Enumeration Ram Address IntPtr.Zero To 0x7fffffff 
 		{
-			if (MmIsAddressValid((PVOID)i))//Check Is Can Write Address
+			if (MmIsAddressValid((PVOID)i))
 			{
 				_try
 				{
 				   ProbeForWrite((PVOID)i,0x1000,sizeof(ULONG));
-				   memset((PVOID)i,0xcc,0x1000); //Set Addresss =  0XCC
+				   memset((PVOID)i,0xcc,0x1000); //Set addresss =  0XCC
 				}_except(1) { continue; }
 			}
 			else {
-				if (i > 0x1000000)  //Write Size Limit 
+				if (i > 0x1000000)  //Write size limit
 					break;
 			}
 		}
-		KeUnstackDetachProcess(PKAPC_STATEpKs);//UNAttach
+		KeUnstackDetachProcess(PKAPC_STATEpKs);
 		if (ObOpenObjectByPointer((PVOID)Eprocess, 0, NULL, 0, NULL, KernelMode, &handle) != STATUS_SUCCESS)
 			return FALSE;
 		ZwTerminateProcess((HANDLE)handle, STATUS_SUCCESS);
@@ -137,7 +134,7 @@ BOOLEAN ZeroKill(ULONG PID)   //X32  X64
 }
 
 /// <summary>
-/// Kernel TerminateProcess (KMDF Process Terminate)
+/// Kernel terminate process (KMDF Process Terminate)
 /// </summary>
 /// <param name="Pid"></param>
 
@@ -236,11 +233,11 @@ INT PauseAndKeepProcess(ULONG Pid, INT Check)
 
 	if (Check == 0)
 	{
-		State = PsResumeProcess(CurrentProcess);//Kernel Pause Process
+		State = PsResumeProcess(CurrentProcess);//Kernel pause process
 	}
 	else
 	{
-		State = PsSuspendProcess(CurrentProcess);//Kernel Keep Process
+		State = PsSuspendProcess(CurrentProcess);//Kernel suspend process
 	}
 }
 
@@ -272,7 +269,7 @@ void SetProcessLevel(ULONG Pid, ULONG Level)
 }
 
 /// <summary>
-/// Kernel Delete File
+/// Kernel delete file
 /// </summary>
 /// <param name="uFilePath"></param>
 /// <returns></returns>
@@ -361,7 +358,7 @@ int Kernel_Atoi(const char* s)
 }
 
 /// <summary>
-/// Check Ring 3 Program Order
+/// Check Ring3 Program Order
 /// </summary>
 /// <param name="Buffer"></param>
 void ProcessCommand(PVOID Buffer)
@@ -525,14 +522,14 @@ NTSTATUS MyDispatch(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 		}
 	}
 
-	KdBreakPoint(); //Set One BreakPoint To WinDbg
+	KdBreakPoint(); //Set breakPoint to WinDbg
 
    
-   // This Information Can Be Return Cache Size
+   // This information return the cache sizes
 	Irp->IoStatus.Information = ret_len;
-	// Recv Io Complete State 
+	// Recv Io complete state 
 	Irp->IoStatus.Status = Status;
-	// End The Request
+	// End request
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 	return Status;
 }

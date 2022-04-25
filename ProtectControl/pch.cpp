@@ -5,9 +5,9 @@
 
 #define KernelListenDrive (L"\\\\.\\ProcessListen")
 
-#define KernelShellDrive (L"\\\\.\\Yueding1007")
+#define KernelShellDrive (L"\\\\.\\Winters1007")
 
-#define KernelProtectPPLDrive (L"\\\\.\\Yueding1002")
+#define KernelProtectPPLDrive (L"\\\\.\\Winters1002")
 
 
 //Superkill.sys 提供内核级对进程的操作 结束进程 挂起恢复进程 以及强制删除文件 和提权等

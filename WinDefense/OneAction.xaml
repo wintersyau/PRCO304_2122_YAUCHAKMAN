@@ -1,0 +1,90 @@
+﻿<Window x:Class="WinDefense.OneAction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinDefense"
+        mc:Ignorable="d"
+        Title="OneAction" Height="450" Width="800" WindowStartupLocation="CenterScreen" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="5" Background="Red" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                ProcessName
+            </Label>
+
+            <Label Grid.Column="1" Grid.Row="0" Name="ProcessName" Margin="5">
+            </Label>
+
+            <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="5" Background="Red" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                ProcessPath
+            </Label>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+
+                <Label  Name="ProcessPath" Width="550"  Margin="5">
+                </Label>
+                <Button Margin="13 5 5 5" Padding="5 0 5 0" Click="OpenPath">OpenPath</Button>
+            </StackPanel>
+
+
+            <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="5" Background="Red" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                ProcessAccess
+            </Label>
+
+            <Label Grid.Column="1" Grid.Row="2" Name="ProcessAccess" Margin="5">
+            </Label>
+
+        </Grid>
+
+        <ListBox Grid.Row="1" Name="Signs" SelectionChanged="Signs_SelectionChanged" >
+        </ListBox>
+
+        <TextBox Name="CurrentSelectStr" Grid.Row="2" >
+        </TextBox>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Margin="5" Grid.Column="0" Foreground="White" Click="PassProcess">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF7373" Offset="0"/>
+                        <GradientStop Color="#FFFF1818" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                Pass
+            </Button>
+
+            <Button Margin="5" Grid.Column="1" Foreground="White" Click="KillProcess">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF89E47B" Offset="0"/>
+                        <GradientStop Color="#FF179304" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                Kill
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

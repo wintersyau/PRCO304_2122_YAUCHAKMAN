@@ -1,0 +1,15 @@
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\MainWindow.g.cs
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\App.g.cs
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense_MarkupCompile.cache
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense_MarkupCompile.lref
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\bin\Release\WinDefense.exe.config
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\bin\Release\WinDefense.exe
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\bin\Release\WinDefense.pdb
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\MainWindow.baml
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.g.resources
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.Properties.Resources.resources
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.exe
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.pdb
+C:\Users\Administrator\source\repos\ProtectCore\WinDefense\obj\Release\WinDefense.csproj.AssemblyReference.cache

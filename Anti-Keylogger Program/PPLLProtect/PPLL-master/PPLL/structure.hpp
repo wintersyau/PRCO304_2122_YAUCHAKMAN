@@ -11,7 +11,7 @@
 #define PS_SEARCH_START				0x200
 #endif
 
-// Source: https://github.com/processhacker2/processhacker2/blob/master/phnt/include/ntexapi.h
+// Reference Source: https://github.com/processhacker2/processhacker2/blob/master/phnt/include/ntexapi.h
 typedef enum _SYSTEM_INFORMATION_CLASS
 {
 	SystemBasicInformation, // q: SYSTEM_BASIC_INFORMATION
@@ -288,7 +288,7 @@ typedef struct _PROCESS_MITIGATION_POLICY_INFORMATION
 	} u;
 } PROCESS_MITIGATION_POLICY_INFORMATION, * PPROCESS_MITIGATION_POLICY_INFORMATION;
 
-// Source: https://github.com/gentilkiwi/mimikatz/blob/master/mimidrv/ioctl.h
+// Reference Source: https://github.com/gentilkiwi/mimikatz/blob/master/mimidrv/ioctl.h
 typedef struct _PS_PROTECTION2
 {
 	union

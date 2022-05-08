@@ -1,18 +1,15 @@
-﻿// pch.h: 这是预编译标头文件。
-// 下方列出的文件仅编译一次，提高了将来生成的生成性能。
-// 这还将影响 IntelliSense 性能，包括代码完成和许多代码浏览功能。
-// 但是，如果此处列出的文件中的任何一个在生成之间有更新，它们全部都将被重新编译。
-// 请勿在此处添加要频繁更新的文件，这将使得性能优势无效。
+﻿// pch.h: This is a precompiled header file.
+// The files listed below are compiled only once, improving build performance for future builds.
+// This will also affect IntelliSense performance, including code completion and many code browsing features.
+// However, if any files listed here are updated before created, they will be recompiled.
+// If add files here, it will invalidate the performance.
 
 #define PCH_H
 
-// 添加要在此处预编译的标头
+// Add the header that for precompile
 #include "framework.h"
 #include<windows.h>
 #include<string>
-
-
-// 设备名对应的符号链接名，用于暴露给应用层。符号链接在应用看来是在\\.\ 的
 
 
 
@@ -78,7 +75,7 @@ using namespace std;
 typedef void (*ProcessCallbackFunction)(const ULONG A, ULONG B, unsigned short C, unsigned short D, unsigned short E, unsigned short F,BOOLEAN G, BOOLEAN H);
 
 
-//CTL_CODE创建控制码
+//CTL_CODE
 #define IOCTL_SEND_AND_REC_STR\
 	CTL_CODE(FILE_DEVICE_UNKNOWN\
 	, 0x801, METHOD_BUFFERED,\

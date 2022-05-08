@@ -191,7 +191,7 @@ FindSignatureLevelOffsets(
 			SignatureOffset, SectionSignatureOffset);
 	else
 	{
-		//it means that it will not process unless the MS code signing requirements were fulfilled
+		//It means that it will not process unless the MS code signing requirements were fulfilled
 		//A non-error status was set to indicate that there still have some PPLs to kill
 		Log("Did not find any non-system processes with signature requirements.\n");
 		Status = STATUS_NO_MORE_ENTRIES;

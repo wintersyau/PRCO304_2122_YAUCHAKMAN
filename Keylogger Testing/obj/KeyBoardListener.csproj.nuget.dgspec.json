@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LAB\\Source\\Repos\\NPRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj": {}
+    "C:\\Users\\Winters\\Documents\\GitHub\\PRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LAB\\Source\\Repos\\NPRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj": {
+    "C:\\Users\\Winters\\Documents\\GitHub\\PRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LAB\\Source\\Repos\\NPRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj",
+        "projectUniqueName": "C:\\Users\\Winters\\Documents\\GitHub\\PRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj",
         "projectName": "KeyBoardListener",
-        "projectPath": "C:\\Users\\LAB\\Source\\Repos\\NPRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj",
-        "packagesPath": "C:\\Users\\LAB\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LAB\\Source\\Repos\\NPRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\obj\\",
+        "projectPath": "C:\\Users\\Winters\\Documents\\GitHub\\PRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\KeyBoardListener.csproj",
+        "packagesPath": "C:\\Users\\Winters\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Winters\\Documents\\GitHub\\PRCO304_2122_YAUCHAKMAN\\Keylogger Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Winters\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

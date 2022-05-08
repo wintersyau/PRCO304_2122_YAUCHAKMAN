@@ -278,7 +278,7 @@ namespace WinDefense.SafeEngine
                 {
                     if (!IsSystemProcess(OneInFo.ProcessName))
                     {
-                        DangerScore = 20;//默认威胁低  >=100为高
+                        DangerScore = 7;//默认威胁低  >=100为高
 
                         if (File.Exists(FilePath))
                         {
@@ -289,13 +289,13 @@ namespace WinDefense.SafeEngine
 
                             if (VerifyAuthenticodeSignature(FilePath, ref Subject))
                             {
-                                DangerScore -= 125;//为通过微软数字签名文件建立信任指数
+                                DangerScore -= 5;//为通过微软数字签名文件建立信任指数
                             }
                             else
                             {
                                 IsStop = true;
                                 ProcessOperation.SuperByControlProcess(OneInFo.Pid);
-                                DangerScore += 25;//未签名追加威胁指数
+                                DangerScore += 5;//未签名追加威胁指数
                             }
 
                             //文件反编译 引擎 不支持加壳的  其实开发杀软 最贵的就是脱壳的钱

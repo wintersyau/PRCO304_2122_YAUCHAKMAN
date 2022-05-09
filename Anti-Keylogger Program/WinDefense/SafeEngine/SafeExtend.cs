@@ -37,7 +37,7 @@ namespace WinDefense.SafeEngine
                 {
                     if (GetFileItem.Split('.')[0].ToLower().Equals(GetSourceName.ToLower()))
                     {
-                        //扫描检测项目内部dll文件 且同名与EXE的文件
+                        //Scans and detects a dll file inside the project and a file name as EXE
 
                         var TempSign = SafeHelper.NewSCan(GetFileItem);
 
@@ -50,7 +50,7 @@ namespace WinDefense.SafeEngine
                             }
                         }
 
-                        //返回dll 特征信息到FileCodeItem指针
+                        //Returns dll feature information to FileCodeItem
                        
                     }
                 }

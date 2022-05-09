@@ -11,7 +11,7 @@ namespace WinDefense.SafeEngine
     {
 
         /// <summary>
-        /// Crc32 表
+        /// Crc32 list
         /// </summary>
         private static UInt32[] Crc32Table =
         {
@@ -47,8 +47,8 @@ namespace WinDefense.SafeEngine
          };
 
         /// <summary>
-        /// 获取文件的CRC32标识    
-        /// <param name="filePath">文件路径</param>       
+        /// Gets the CRC32 ID 
+        /// <param name="filePath">file path</param>       
         /// <returns></returns>    
         /// </summary
         public static string GetFileCRC32(String filePath)
@@ -57,14 +57,14 @@ namespace WinDefense.SafeEngine
             if (string.IsNullOrEmpty(filePath)) { return FOO; }
 
             if (!File.Exists(filePath)) { return FOO; }
-            // 最大2G            
+            // Maximum 2G            
             const long MAX_SIZE = 2147483647;
             var f = new FileInfo(filePath);
             if (f.Length >= MAX_SIZE)
             {
                 return FOO;
             }
-            //读取文件字节数
+            //Number of bytes of the file read
             byte[] bytes = File.ReadAllBytes(filePath);
 
             long resultCrcValue = 0x00000000ffffffffL;
@@ -79,11 +79,11 @@ namespace WinDefense.SafeEngine
         }
 
         /// <summary>
-        /// 从十六进制转换成其他进制 (无符号数)
+        /// Coverse form hex to dec (Unsigned number)
         /// </summary>
-        /// <param name="input">十六进制数</param>
-        /// <param name="toType">转换成的进制数(2,8,10)</param>
-        /// <returns>返回正整数</returns>
+        /// <param name="input">Hex</param>
+        /// <param name="toType">Convert to a binary(2,8,10)</param>
+        /// <returns>Return integer</returns>
         public static string ConvertGenericBinaryFromHexadecimal(string input, int toType)
         {
             string result = "-1";

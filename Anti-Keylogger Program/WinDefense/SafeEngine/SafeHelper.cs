@@ -22,7 +22,7 @@ namespace WinDefense.SafeEngine
         public static void Initialization()
         {
             //return;
-            //A需要注意的 B需要重视的 C需要立即处理的
+            //A=pay attention B=significant C=take action immediatelys
             try { 
             new FileCodeSCanItem("SetWindowsHookEx", 30, "Install Overall Hook !", "Hook.C").InsertDateToDB();
             new FileCodeSCanItem("CallNextHookEx", 6, "Passes the hook information to the next hook procedure in the current hook chain.", "Hook.A").InsertDateToDB();
@@ -120,7 +120,7 @@ namespace WinDefense.SafeEngine
         }
 
         /// <summary>
-        /// 取文件数字签名
+        /// provide the path of the digital signature
         /// </summary>
         /// <param name="providedFilePath"></param>
         /// <returns></returns>
@@ -278,30 +278,27 @@ namespace WinDefense.SafeEngine
                 {
                     if (!IsSystemProcess(OneInFo.ProcessName))
                     {
-                        DangerScore = 7;//默认威胁低  >=100为高
+                        DangerScore = 7;//Default= threat low  >=100 High
 
                         if (File.Exists(FilePath))
                         {
                             bool IsStop = false;
   
-                            //签名化验
                             string Subject = string.Empty;
 
                             if (VerifyAuthenticodeSignature(FilePath, ref Subject))
                             {
-                                DangerScore -= 5;//为通过微软数字签名文件建立信任指数
+                                DangerScore -= 5;
                             }
                             else
                             {
                                 IsStop = true;
                                 ProcessOperation.SuperByControlProcess(OneInFo.Pid);
-                                DangerScore += 5;//未签名追加威胁指数
+                                DangerScore += 5;
                             }
 
-                            //文件反编译 引擎 不支持加壳的  其实开发杀软 最贵的就是脱壳的钱
                             AllSign = NewSCan(FilePath);
 
-                            //附加扫描同名Dll文件
                             SafeExtend.ScanFileByProcessPath(FilePath,ref AllSign);
 
                             foreach (var GetSign in AllSign)
@@ -348,11 +345,6 @@ namespace WinDefense.SafeEngine
 
                             }
 
-                            //性能化验
-
-                            //IO读写化验
-
-
                         }
                     }
                     else
@@ -363,7 +355,7 @@ namespace WinDefense.SafeEngine
             }
             else
             {
-                //放行白名单内容
+                //White list
                 DangerScore = 0;
                 AllSign.Clear();
             }

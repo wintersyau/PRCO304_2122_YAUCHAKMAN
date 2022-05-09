@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace WinDefense
 {
     /// <summary>
-    /// SCANEND.xaml 的交互逻辑
+    /// SCANEND.xaml exchange logic
     /// </summary>
     public partial class SCANEND : Window
     {

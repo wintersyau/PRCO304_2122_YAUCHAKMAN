@@ -14,11 +14,11 @@ namespace WinDefense.SQLManage
         public static string connectionString = string.Empty;
 
         /// <summary>
-        /// 根据数据源、密码、版本号设置连接字符串。
+        /// Sets the connection string based on the data source, password, version number.
         /// </summary>
-        /// <param name="datasource">数据源。</param>
-        /// <param name="password">密码。</param>
-        /// <param name="version">版本号（缺省为3）。</param>
+        /// <param name="datasource">datasource。</param>
+        /// <param name="password">pw。</param>
+        /// <param name="version">version（lost 3）。</param>
         public static void SetConnectionString(string datasource, string password, int version = 3)
         {
             if (string.IsNullOrWhiteSpace(password))
@@ -28,10 +28,10 @@ namespace WinDefense.SQLManage
         }
 
         /// <summary>
-        /// 创建一个数据库文件。如果存在同名数据库文件，则会覆盖。
+        /// Create a database file. if using the same name will overwritten.
         /// </summary>
-        /// <param name="dbName">数据库文件名。为null或空串时不创建。</param>
-        /// <param name="password">（可选）数据库密码，默认为空。</param>
+        /// <param name="dbName">Table name</param>
+        /// <param name="password">password</param>
         /// <exception cref="Exception"></exception>
         public static void CreateDB(string dbName)
         {
@@ -43,10 +43,11 @@ namespace WinDefense.SQLManage
         }
 
         /// <summary> 
-        /// 对SQLite数据库执行增删改操作，返回受影响的行数。 
+        /// Performs an addition deletion or alteration on SQLite database and return the number of rows affected. 
         /// </summary> 
-        /// <param name="sql">要执行的增删改的SQL语句。</param> 
-        /// <param name="parameters">执行增删改语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param> 
+        /// <param name="sql">The SQL to be added, deleted or altered.</param> 
+        /// <param name="parameters">The parameters required to execute the addition, deletion, or alteration must be in the order in the SQL statement.
+</param> 
         /// <returns></returns> 
         /// <exception cref="Exception"></exception>
         public static int ExecuteNonQuery(string sql, string dataWxid = "", params SQLiteParameter[] parameters)
@@ -75,9 +76,9 @@ namespace WinDefense.SQLManage
         }
 
         /// <summary>
-        /// 批量处理数据操作语句。
+        /// Batch process data manipulation statements.
         /// </summary>
-        /// <param name="list">SQL语句集合。</param>
+        /// <param name="list">SQL statements。</param>
         /// <exception cref="Exception"></exception>
         public static void ExecuteNonQueryBatch(List<KeyValuePair<string, SQLiteParameter[]>> list, string dataWxid = "")
         {
@@ -163,10 +164,10 @@ namespace WinDefense.SQLManage
         }
 
         /// <summary>
-        /// 执行查询语句，并返回第一个结果。
+        /// Executes the query statement and returns the first result.
         /// </summary>
-        /// <param name="sql">查询语句。</param>
-        /// <returns>查询结果。</returns>
+        /// <param name="sql">Query</param>
+        /// <returns>returns。</returns>
         /// <exception cref="Exception"></exception>
         public static object ExecuteScalar(string sql, string dataWxid = "", params SQLiteParameter[] parameters)
         {
@@ -191,11 +192,6 @@ namespace WinDefense.SQLManage
             }
         }
 
-        /// </summary> 
-        /// <param name="sql">要执行的查询语句。</param> 
-        /// <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param> 
-        /// <returns></returns> 
-        /// <exception cref="Exception"></exception>
         public static DataTable ExecuteQuery(string sql, string dataWxid = "", params SQLiteParameter[] parameters)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -215,13 +211,6 @@ namespace WinDefense.SQLManage
             }
         }
 
-        /// <summary> 
-        /// 执行一个查询语句，返回一个关联的SQLiteDataReader实例。 
-        /// </summary> 
-        /// <param name="sql">要执行的查询语句。</param> 
-        /// <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准。</param> 
-        /// <returns></returns> 
-        /// <exception cref="Exception"></exception>
         public static SQLiteDataReader ExecuteReader(string sql, string dataWxid = "", params SQLiteParameter[] parameters)
         {
             SQLiteConnection connection = new SQLiteConnection(connectionString);
@@ -239,7 +228,7 @@ namespace WinDefense.SQLManage
         }
 
         /// <summary> 
-        /// 查询数据库中的所有数据类型信息。
+        /// Queries all information data
         /// </summary> 
         /// <returns></returns> 
         /// <exception cref="Exception"></exception>

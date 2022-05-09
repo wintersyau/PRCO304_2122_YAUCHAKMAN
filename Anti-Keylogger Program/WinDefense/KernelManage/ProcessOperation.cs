@@ -10,7 +10,7 @@ namespace WinDefense.KernelManage
     public class ProcessOperation
     {
         /// <summary>
-        /// 调用PPLLProtect保护指定进程防止被结束被篡改
+        /// PPLLProtect protect the process from being tampered and ended up.
         /// </summary>
         /// <param name="Pid"></param>
         /// <param name="Protected"></param>
@@ -24,12 +24,11 @@ namespace WinDefense.KernelManage
 
             if (Protected)
             {
-                return KernelHelper.SendMsgToKernelByPPL("P" + Pid.ToString()); //启用护盾
+                return KernelHelper.SendMsgToKernelByPPL("P" + Pid.ToString()); 
             }
             else
             {
-                //已弃用
-                return KernelHelper.SendMsgToKernelByPPL("U" + Pid.ToString()); //停用护盾有攻击性的还可以停止其他软件的PPL
+                return KernelHelper.SendMsgToKernelByPPL("U" + Pid.ToString());
             }
 
             }
@@ -37,10 +36,9 @@ namespace WinDefense.KernelManage
         }
 
         /// <summary>
-        /// 调用 Superkill 强制结束进程
+        /// Superkill forced to end the process
         /// </summary>
-        /// <param name="Pid"></param>
-        /// <returns></returns>
+  
         public static bool SuperByKillProcess(int Pid)
         {
             try 
@@ -53,10 +51,7 @@ namespace WinDefense.KernelManage
 
 
         /// <summary>
-        ///  调用 Superkill强制提权任意进程到DebugSystem
-        /// </summary>
-        /// <param name="Pid"></param>
-        /// <returns></returns>
+        /// Call the Superkill to elevat the arbitrary processes to DebugSystem
         public static bool UPLevel(int Pid)
         {
             try 
@@ -68,7 +63,7 @@ namespace WinDefense.KernelManage
         }
 
         /// <summary>
-        /// 调用SuperKill挂起进程或者恢复
+        /// Call SuperKill to suspend the process or resume
         /// </summary>
         /// <param name="Pid"></param>
         /// <param name="Keep"></param>

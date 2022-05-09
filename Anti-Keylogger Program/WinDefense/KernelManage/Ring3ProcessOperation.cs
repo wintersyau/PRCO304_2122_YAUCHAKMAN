@@ -12,7 +12,7 @@ namespace WinDefense.KernelManage
 
 
         /// <summary>
-        /// 调用 Superkill 强制结束进程
+        /// Call Superkill to end the process
         /// </summary>
         /// <param name="Pid"></param>
         /// <returns></returns>

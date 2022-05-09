@@ -51,7 +51,8 @@ namespace WinDefense.ProcessControl
                                     {
                                         CurrentProcessSafeCheckThread++;
                                         SafeHelper.CheckProcessSafe(ref OneItem);
-                                        KernelHelper.MsgPrRecvItems.Enqueue(OneItem);//显示消息给前端
+                                        KernelHelper.MsgPrRecvItems.Enqueue(OneItem);//Displays a message to the front end
+
                                         CurrentProcessSafeCheckThread--;
                                     }).Start();
                                 }
@@ -168,7 +169,7 @@ namespace WinDefense.ProcessControl
                     string MPath = GetModulePath;
                     string MName = DataHelper.GetPathAndFileName(ref MPath);
 
-                    byte[] CurrentData;//预缓存
+                    byte[] CurrentData;//prepare for cached
 
                     if (LibraryDataCache.ContainsKey(MName))
                     {
@@ -223,8 +224,9 @@ namespace WinDefense.ProcessControl
 
                 }
                 else
-                { 
-                   //读取权限不足
+                {
+                    //Insufficient of read permissions
+
                 }
             }
         }

@@ -25,7 +25,7 @@ using WinDefense.SQLManage;
 namespace WinDefense
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MainWindow.xaml exchange logic
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -37,7 +37,7 @@ namespace WinDefense
 
         //private void TestEngine()
         //{
-        //    SQLiteHelper.InitSqliteConfig("SafeDB");//装载本地离线木马库
+        //    SQLiteHelper.InitSqliteConfig("SafeDB");//install database
         //    var TryGetAccess = SafeHelper.NewSCan(@"C:\Users\Lab\source\repos\KeyBoardListener\KeyBoardListener\bin\Debug\net5.0-windows\KeyBoardListener.dll");
 
         //    int DangeValue = 0;
@@ -57,7 +57,7 @@ namespace WinDefense
             SafeHelper.Initialization();
             FormHelper.SetActiveWin(this);
 
-            FormHelper.ShowRealTimeProcessReport();//显示内存防护系统处理摘要
+            FormHelper.ShowRealTimeProcessReport();//show the realtime process
         }
 
         private void StartQuickSCan(object sender, MouseButtonEventArgs e)

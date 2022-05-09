@@ -109,16 +109,16 @@ typedef TIME_FIELDS* PTIME_FIELDS;
 
 typedef struct _PROCESSINFO
 {
-	TIME_FIELDS			time;						// 时间
-	BOOLEAN				bIsCreate;					// 是否是创建进程
-	HANDLE				hParentProcessId;			// 父进程 ID
-	ULONG				ulParentProcessLength;		// 父进程长度
-	HANDLE				hProcessId;					// 子进程 ID
-	ULONG				ulProcessLength;			// 子进程长度
-	ULONG				ulCommandLineLength;		// 进程命令行参数长度
+	TIME_FIELDS			time;						
+	BOOLEAN				bIsCreate;					
+	HANDLE				hParentProcessId;			
+	ULONG				ulParentProcessLength;		
+	HANDLE				hProcessId;					
+	ULONG				ulProcessLength;			
+	ULONG				ulCommandLineLength;		
 	BOOLEAN             ParentSystem;
 	BOOLEAN             ThisSystem;
-	UCHAR				uData[1];					// 数据域
+	UCHAR				uData[1];					
 } PROCESSINFO, * PPROCESSINFO;
 #pragma endregion
 

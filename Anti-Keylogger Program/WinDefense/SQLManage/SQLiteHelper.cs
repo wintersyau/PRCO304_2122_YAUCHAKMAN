@@ -46,8 +46,7 @@ namespace WinDefense.SQLManage
         /// Performs an addition deletion or alteration on SQLite database and return the number of rows affected. 
         /// </summary> 
         /// <param name="sql">The SQL to be added, deleted or altered.</param> 
-        /// <param name="parameters">The parameters required to execute the addition, deletion, or alteration must be in the order in the SQL statement.
-</param> 
+        /// <param name="parameters">The parameters required to execute the addition, deletion, or alteration must be in the order in the SQL statement.</param> 
         /// <returns></returns> 
         /// <exception cref="Exception"></exception>
         public static int ExecuteNonQuery(string sql, string dataWxid = "", params SQLiteParameter[] parameters)

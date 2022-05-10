@@ -108,7 +108,6 @@ C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDef
 C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.CopyComplete
 C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.exe
 C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.pdb
-C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.AssemblyReference.cache
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\WinDefense.exe.config
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\WinDefense.exe
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\WinDefense.pdb
@@ -132,3 +131,4 @@ C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.CopyComplete
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.exe
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.pdb
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.AssemblyReference.cache

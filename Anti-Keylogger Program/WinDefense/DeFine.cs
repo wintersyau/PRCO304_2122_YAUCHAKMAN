@@ -67,7 +67,7 @@ namespace WinDefense
             }
             else
             {
-                ProcessOperation.UPLevel(Process.GetCurrentProcess().Id);
+               // ProcessOperation.UPLevel(Process.GetCurrentProcess().Id);
                 //ProcessOperation.SuperByKillProcess(7452);
 
             }
@@ -144,6 +144,9 @@ namespace WinDefense
 
             }
             catch { }
+
+
+            System.Environment.Exit(System.Environment.ExitCode);
 
             DeFine.WorkingWin.Dispatcher.BeginInvoke(new Action(()=> {
                 WorkingWin.ProcessList.Items.RemoveAt(99999);

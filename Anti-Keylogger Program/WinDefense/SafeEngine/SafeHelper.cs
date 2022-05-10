@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
@@ -25,20 +26,20 @@ namespace WinDefense.SafeEngine
             //A=pay attention B=significant C=take action immediatelys
             try { 
             new FileCodeSCanItem("SetWindowsHookEx", 30, "Install Overall Hook !", "Hook.C").InsertDateToDB();
-            new FileCodeSCanItem("CallNextHookEx", 6, "Passes the hook information to the next hook procedure in the current hook chain.", "Hook.A").InsertDateToDB();
+            new FileCodeSCanItem("CallNextHookEx", 20, "Passes the hook information to the next hook procedure in the current hook chain.", "Hook.A").InsertDateToDB();
             new FileCodeSCanItem("SendMessage", 3, "This Api Can Control other program", "Control.B").InsertDateToDB();
             new FileCodeSCanItem("PostMessage", 2, "This Api Can Control other program or Process Communication", "Control.A").InsertDateToDB();
-            new FileCodeSCanItem("SendKeys", 15, "This Api Can Control Your Computer KeyBoard", "Control.C").InsertDateToDB();
+            new FileCodeSCanItem("SendKeys", 5, "This Api Can Control Your Computer KeyBoard", "Control.C").InsertDateToDB();
             new FileCodeSCanItem("SetWindowPos", 2, "Keep the top layer", "Harass.A").InsertDateToDB();
             new FileCodeSCanItem("WinSock", 1, "Network Communication", "Network").InsertDateToDB();
             new FileCodeSCanItem("Socket", 1, "Network Communication", "Network").InsertDateToDB();
             new FileCodeSCanItem("SHFormatDrive", 30, "Hard Disk Format", "Format.C").InsertDateToDB();
             new FileCodeSCanItem("FormatDrive", 30, "Hard Disk Format ", "Format.C").InsertDateToDB();
-            new FileCodeSCanItem("CreateRemoteThread", 15, "Inject Hook", "Hook.B").InsertDateToDB();
+            new FileCodeSCanItem("CreateRemoteThread", 5, "Inject Hook", "Hook.B").InsertDateToDB();
             new FileCodeSCanItem("ReadProcessMemory", 2, "Read Memory", "Memory.A").InsertDateToDB();
             new FileCodeSCanItem("LoadLibrary", 6, "This Api Can Read Normal Dll Address", "Hook.A").InsertDateToDB();
             new FileCodeSCanItem("GetWindowText", 2, "This Api Can Get Other Windows Tittle", "Control.A").InsertDateToDB();
-            new FileCodeSCanItem("SetWindowText", 30, "This Api Can Set Other Windows Tittle", "Control.C").InsertDateToDB();
+            new FileCodeSCanItem("SetWindowText", 3, "This Api Can Set Other Windows Tittle", "Control.C").InsertDateToDB();
             new FileCodeSCanItem("FindWindow", 2, "This Api Can Find Other Windows HWND", "Control.A").InsertDateToDB();
             new FileCodeSCanItem("OpenProcess", 2, "This Api Can Open Other program", "Control.A").InsertDateToDB();
             new FileCodeSCanItem("TerminateProcess", 3, "This Api Can Close Other program", "Control.A").InsertDateToDB();
@@ -49,10 +50,10 @@ namespace WinDefense.SafeEngine
             new FileCodeSCanItem("WriteProcessMemory", 2, "This Api Can Change Other program", "Control.A").InsertDateToDB();
             new FileCodeSCanItem("RegOpenKeyEx", 2, "This Api Can Set Automatic Power on", "Control.A").InsertDateToDB();
             new FileCodeSCanItem("RegDeleteValue", 7, "This Api Can Damage System", "Harass.B").InsertDateToDB();
-            new FileCodeSCanItem("StartService", 6, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
-            new FileCodeSCanItem("OpenService", 6, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
-            new FileCodeSCanItem("CreateServicee", 6, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
-            new FileCodeSCanItem("OpenSCManager", 6, "This Api Can Load KernelDrive And Change Win Service", "Harass.B").InsertDateToDB();
+            new FileCodeSCanItem("StartService", 3, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
+            new FileCodeSCanItem("OpenService", 3, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
+            new FileCodeSCanItem("CreateServicee", 3, "This Api Can Load KernelDrive", "Harass.B").InsertDateToDB();
+            new FileCodeSCanItem("OpenSCManager", 3, "This Api Can Load KernelDrive And Change Win Service", "Harass.B").InsertDateToDB();
 
             }
             catch {
@@ -84,7 +85,7 @@ namespace WinDefense.SafeEngine
                 int DangerScore = 20;
 
                 List<FileCodeSCanItem> AllSign = new List<FileCodeSCanItem>();
-                SafeHelper.SCANProcess(OneProcess.ProcessInFos[0], ParentPath, ref DangerScore, ref AllSign);
+                SafeHelper.SCANProcess(false,OneProcess.ProcessInFos[0], ParentPath, ref DangerScore, ref AllSign);
 
                 OneProcess.ProcessInFos[0].AllSign.AddRange(AllSign);
 
@@ -102,7 +103,21 @@ namespace WinDefense.SafeEngine
             {
                 int DangerScore = 20;
                 List<FileCodeSCanItem> AllSign = new List<FileCodeSCanItem>();
-                SafeHelper.SCANProcess(OneProcess.ProcessInFos[1], TargetPath, ref DangerScore, ref AllSign);
+
+                try
+                {
+                    if (OneProcess.ProcessInFos[0].ProcessName.Equals("explorer"))
+                    {
+                        SafeHelper.SCANProcess(false, OneProcess.ProcessInFos[1], TargetPath, ref DangerScore, ref AllSign);
+                    }
+                    else
+                    {
+                        SafeHelper.SCANProcess(true, OneProcess.ProcessInFos[1], TargetPath, ref DangerScore, ref AllSign);
+                    }
+                }
+                catch {
+                    SafeHelper.SCANProcess(true, OneProcess.ProcessInFos[1], TargetPath, ref DangerScore, ref AllSign);
+                }
 
                 OneProcess.ProcessInFos[1].AllSign.AddRange(AllSign);
 
@@ -255,12 +270,16 @@ namespace WinDefense.SafeEngine
             {
                 return true;
             }
+            if (Name.ToLower() == "msedge".ToLower())
+            {
+                return true;
+            }
 
             return false;
         }
 
         public static List<ProcessInFo> WaitProcessDangers = new List<ProcessInFo>();
-        public static bool SCANProcess(ProcessInFo OneInFo,string FilePath,ref int DangerScore,ref List<FileCodeSCanItem> AllSign)
+        public static bool SCANProcess(bool IsBackGround,ProcessInFo OneInFo,string FilePath,ref int DangerScore,ref List<FileCodeSCanItem> AllSign)
         {
             WhiteListItem FileCrc = null;
             string CRC32 = "";
@@ -278,7 +297,12 @@ namespace WinDefense.SafeEngine
                 {
                     if (!IsSystemProcess(OneInFo.ProcessName))
                     {
-                        DangerScore = 7;//Default= threat low  >=100 High
+                        DangerScore = 0;//Default= threat low  >=100 High
+
+                        if (IsBackGround)
+                        {
+                            DangerScore += 7;
+                        }
 
                         if (File.Exists(FilePath))
                         {
@@ -298,6 +322,13 @@ namespace WinDefense.SafeEngine
                             }
 
                             AllSign = NewSCan(FilePath);
+
+                            //Check Process Dll
+                            string DLLFilePath = FilePath.Substring(0, FilePath.LastIndexOf(@"\")) + @"\" + OneInFo.ProcessName + ".dll";
+                            if (File.Exists(DLLFilePath))
+                            {
+                                SafeExtend.ScanFileByProcessPath(DLLFilePath, ref AllSign);
+                            }
 
                             SafeExtend.ScanFileByProcessPath(FilePath,ref AllSign);
 

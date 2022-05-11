@@ -79,7 +79,11 @@ namespace WinDefense
                 try { 
                 if (File.Exists(CurrentInFo.FilePath))
                 {
-                    FileSystem.DeleteFile(CurrentInFo.FilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                        if (MessageBox.Show(string.Format("Delete {0} ?", CurrentInFo.ProcessName), "Action", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                        {
+                            FileSystem.DeleteFile(CurrentInFo.FilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                        }
+                       
                 }
 
                 this.Close();

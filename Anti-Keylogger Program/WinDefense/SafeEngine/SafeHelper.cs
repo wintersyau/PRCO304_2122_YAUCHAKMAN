@@ -278,9 +278,20 @@ namespace WinDefense.SafeEngine
             return false;
         }
 
+        public static List<string> CheckProcessCache = new List<string>();
+
         public static List<ProcessInFo> WaitProcessDangers = new List<ProcessInFo>();
         public static bool SCANProcess(bool IsBackGround,ProcessInFo OneInFo,string FilePath,ref int DangerScore,ref List<FileCodeSCanItem> AllSign)
         {
+            if (CheckProcessCache.Contains(OneInFo.FilePath))
+            {
+                return true;
+            }
+            else
+            {
+                CheckProcessCache.Add(OneInFo.FilePath);
+            }
+
             WhiteListItem FileCrc = null;
             string CRC32 = "";
 
@@ -324,10 +335,26 @@ namespace WinDefense.SafeEngine
                             AllSign = NewSCan(FilePath);
 
                             //Check Process Dll
+                          
+                            
                             string DLLFilePath = FilePath.Substring(0, FilePath.LastIndexOf(@"\")) + @"\" + OneInFo.ProcessName + ".dll";
                             if (File.Exists(DLLFilePath))
                             {
                                 SafeExtend.ScanFileByProcessPath(DLLFilePath, ref AllSign);
+                            }
+                            else
+                            {
+                                //Is Not Net Core Program
+                                string ChildFilePath = FilePath.Substring(0, FilePath.LastIndexOf(@"\")) + @"\";
+
+                                foreach (var Get in Directory.GetFiles(ChildFilePath))
+                                {
+                                    if (Get.ToLower().EndsWith(".dll"))
+                                    {
+                                        SafeExtend.ScanFileByProcessPath(Get, ref AllSign);
+                                    }
+                                }
+                               
                             }
 
                             SafeExtend.ScanFileByProcessPath(FilePath,ref AllSign);

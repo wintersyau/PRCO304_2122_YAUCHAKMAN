@@ -78,6 +78,24 @@ namespace WinDefense
 
             }
 
+            //FristStart Scan All Process Report Virus
+            
+
+            foreach (var GetProcess in Process.GetProcesses())
+            {
+                try {
+
+                    if (GetProcess.ProcessName == "syscrb")
+                    {
+                        ThreadPrRecvItem OneItem = new ThreadPrRecvItem(0, (uint)GetProcess.Id, 0, 0, 0, 0, false, true);
+                        ProcessHelper.PrThreadRecvs.Enqueue(OneItem);
+                    }
+              
+                }
+                catch { }
+            }
+
+
             if (DriveLoader.GetDrive("ProcessListen.sys").StartDrive())
             {
                 KernelHelper.InstallProcessRecvHandle(new KernelHelper.ProcessProc(KernelHelper.RecvProcessListen));
@@ -86,7 +104,7 @@ namespace WinDefense
 
                 if (StartState == false)
                 {
-                    MessageBox.Show("LoadDriveError!");
+                    MessageBox.Show("ProcessListen - LoadDriveError!");
                 }
 
                 ProcessHelper.StartProcessProcessService(true);

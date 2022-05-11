@@ -55,6 +55,11 @@ namespace WinDefense
 
         private void PassProcess(object sender, RoutedEventArgs e)
         {
+            if (SafeEngine.SafeHelper.CheckProcessCache.Contains(CurrentInFo.FilePath))
+            {
+                SafeEngine.SafeHelper.CheckProcessCache.Remove(CurrentInFo.FilePath);
+            }
+
             DeFine.DangeCount++;
             ProcessOperation.SuperByControlProcess(CurrentInFo.Pid, true);
             this.Close();
@@ -88,6 +93,12 @@ namespace WinDefense
             string GetPath = ConvertHelper.ObjToStr(ProcessPath.Content);
             GetPath = GetPath.Substring(0, GetPath.LastIndexOf(@"\"));
             System.Diagnostics.Process.Start("explorer.exe", GetPath);
+        }
+
+        private void TrustProcess(object sender, RoutedEventArgs e)
+        {
+            ProcessOperation.SuperByControlProcess(CurrentInFo.Pid, true);
+            this.Close();
         }
     }
 }

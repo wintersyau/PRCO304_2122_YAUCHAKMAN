@@ -41,3 +41,26 @@ C:\Users\Lab\Desktop\ProtectCore\WinDefense\obj\x64\Release\WinDefense.csproj.Ge
 C:\Users\Lab\Desktop\ProtectCore\WinDefense\obj\x64\Release\WinDefense.csproj.CoreCompileInputs.cache
 C:\Users\Lab\Desktop\ProtectCore\WinDefense\obj\x64\Release\WinDefense.csproj.CopyComplete
 C:\Users\Lab\Desktop\ProtectCore\WinDefense\obj\x64\Release\WinDefense.exe
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\WinDefense.exe.config
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\WinDefense.exe
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\Cake.Powershell.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\System.Data.SQLite.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\System.Management.Automation.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\Cake.Powershell.pdb
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Release\Cake.Powershell.xml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.csproj.AssemblyReference.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\MainWindow.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\OneAction.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\SCANEND.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\App.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense_MarkupCompile.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense_MarkupCompile.lref
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\MainWindow.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\OneAction.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\SCANEND.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.g.resources
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.Properties.Resources.resources
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.csproj.GenerateResource.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.csproj.CoreCompileInputs.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.csproj.CopyComplete
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Release\WinDefense.exe

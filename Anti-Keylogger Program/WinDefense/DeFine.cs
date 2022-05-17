@@ -49,10 +49,10 @@ namespace WinDefense
             //using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.connectionString))
             //{
             //    connection.Open();
-            //    connection.ChangePassword("abc123");
+            //    connection.ChangePassword("!@#$%Z^&^&*()12333AseRkjhjlaf!#$%");
             //}
 
-            SQLiteHelper.SetConnectionString(DeFine.GetFullPath("", @"\SafeDB.db"), "abc123");
+            SQLiteHelper.SetConnectionString(DeFine.GetFullPath("", @"\SafeDB.db"), "!@#$%Z^&^&*()12333AseRkjhjlaf!#$%");
 
             DriveLoader.NewDrive("ProcessListen.sys");
 

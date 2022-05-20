@@ -104,7 +104,7 @@ int Getlen(const char* str)
 	return len;
 }
 
-//String convert to Integer
+//String convert to Integer 
 int Kernel_Atoi(const char* s)
 {
 	BOOLEAN negative = FALSE;

@@ -130,6 +130,22 @@
                                     <Label Foreground="White" FontSize="13" Background="#FFFFA224" Padding="10 5 10 5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="80" Height="30" Margin="5 0 0 0">
                                         Initiative
                                     </Label>
+
+                                    <Border Grid.Row="0" BorderThickness="1" CornerRadius="10" Height="30"  VerticalAlignment="Center" MouseDown="StartQuickSCan">
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF13FFEA" Offset="0"/>
+                                                <GradientStop Color="#FF2DB6FD" Offset="1"/>
+                                                <GradientStop Color="#FF0064C2" Offset="0.521"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        
+                                        <Label  Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="12" MouseDown="ShowWhiteListView" >
+                                            ShowWhiteList
+                                        </Label>
+
+                                      
+                                    </Border>
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal" Height="25">

@@ -46,18 +46,28 @@ namespace WinDefense
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //TestEngine()
-            //return;
+            this.Hide();
+            if (DeFine.AdminRun())
+            {
+                //TestEngine()
+                //return;
+                this.Show();
 
-            DeFine.WorkingWin = this;
+                DeFine.WorkingWin = this;
 
-            NotifyIconHelper.Init(this, "WinDefense");
+                NotifyIconHelper.Init(this, "WinDefense");
 
-            DeFine.Initialization();
-            SafeHelper.Initialization();
-            FormHelper.SetActiveWin(this);
+                DeFine.Initialization();
+                SafeHelper.Initialization();
+                FormHelper.SetActiveWin(this);
 
-            FormHelper.ShowRealTimeProcessReport();//show the realtime process
+                FormHelper.ShowRealTimeProcessReport();//show the realtime process
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+         
         }
 
         private void StartQuickSCan(object sender, MouseButtonEventArgs e)
@@ -154,6 +164,11 @@ namespace WinDefense
         private void Window_Closed(object sender, EventArgs e)
         {
          
+        }
+
+        private void ShowWhiteListView(object sender, MouseButtonEventArgs e)
+        {
+            new WhiteListManage().Show();
         }
     }
 }

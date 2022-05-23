@@ -101,6 +101,11 @@ namespace WinDefense
 
         private void TrustProcess(object sender, RoutedEventArgs e)
         {
+            if (!DeFine.Trusts.Contains(CurrentInFo.FilePath))
+            {
+                DeFine.Trusts.Add(CurrentInFo.FilePath);
+            }
+
             ProcessOperation.SuperByControlProcess(CurrentInFo.Pid, true);
             this.Close();
         }

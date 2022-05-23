@@ -155,6 +155,9 @@
     </Compile>
     <Compile Include="SQLManage\SQLiteHelper.cs" />
     <Compile Include="SQLManage\SQLiteStruct.cs" />
+    <Compile Include="WhiteListManage.xaml.cs">
+      <DependentUpon>WhiteListManage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinApiManage\WinApiHelper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SCANEND.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WhiteListManage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Diagnostics;
@@ -19,10 +20,56 @@ namespace WinDefense
 {
     public class DeFine
     {
+        public static List<string> Trusts = new List<string>();
+
         public static int DangeCount = 0;
         public static bool SCaning = false;
 
         public static MainWindow WorkingWin = null;
+
+
+        public static bool AdminRun()
+        {
+            /**
+    * 当前用户是管理员的时候，直接启动应用程序
+    * 如果不是管理员，则使用启动对象启动程序，以确保使用管理员身份运行
+*/
+            //获得当前登录的Windows用户标示
+            System.Security.Principal.WindowsIdentity identity = System.Security.Principal.WindowsIdentity.GetCurrent();
+            //创建Windows用户主题
+
+            System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(identity); //判断当前登录用户是否为管理员
+            if (principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator))
+            {
+                //如果是管理员，则直接运行
+                return true;
+
+            }
+            else
+            {
+                //创建启动对象
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                //设置运行文件
+                startInfo.FileName = System.Windows.Forms.Application.ExecutablePath;
+                //设置启动参数
+                //startInfo.Arguments = String.Join(" ", Args);
+                //设置启动动作,确保以管理员身份运行
+                startInfo.Verb = "runas";
+
+                try
+                {
+                    //如果不是管理员，则启动UAC
+                    System.Diagnostics.Process.Start(startInfo);
+                    //退出
+                  
+                }
+                catch
+                {
+                }
+
+                return false;
+            }
+        }
         public static void ClearDange()
         {
             foreach (var Get in SafeHelper.WaitProcessDangers)
@@ -31,6 +78,24 @@ namespace WinDefense
             }
 
             DangeCount = 0;
+        }
+
+
+        public static void SCanPowerOn()
+        {
+            RegistryKey PowerOns = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run");
+
+            foreach (string Item in PowerOns.GetValueNames())
+            {
+                string Path = PowerOns.GetValue(Item).ToString();
+
+                foreach (var GetProcess in Process.GetProcessesByName(Item))
+                {
+                    ThreadPrRecvItem OneItem = new ThreadPrRecvItem(0, (uint)GetProcess.Id, 0, 0, 0, 0, false, true);
+                    ProcessHelper.PrThreadRecvs.Enqueue(OneItem);
+                }
+
+            }
         }
 
         public static int MaxProcessSafeCheckThread = 5;
@@ -78,23 +143,8 @@ namespace WinDefense
 
             }
 
-            //FristStart Scan All Process Report Virus
-            
-
-            foreach (var GetProcess in Process.GetProcesses())
-            {
-                try {
-
-                    if (GetProcess.ProcessName == "syscrb")
-                    {
-                        ThreadPrRecvItem OneItem = new ThreadPrRecvItem(0, (uint)GetProcess.Id, 0, 0, 0, 0, false, true);
-                        ProcessHelper.PrThreadRecvs.Enqueue(OneItem);
-                    }
-              
-                }
-                catch { }
-            }
-
+            //FristStart Scan All SCanPowerOn Process Report Virus
+            SCanPowerOn();
 
             if (DriveLoader.GetDrive("ProcessListen.sys").StartDrive())
             {

@@ -278,7 +278,7 @@ namespace WinDefense.SafeEngine
             return false;
         }
 
-        public static List<string> CheckProcessCache = new List<string>();
+        public static List<string> CheckProcessCache = new List<string>();//WhiteList 
 
         public static List<ProcessInFo> WaitProcessDangers = new List<ProcessInFo>();
         public static bool SCANProcess(bool IsBackGround,ProcessInFo OneInFo,string FilePath,ref int DangerScore,ref List<FileCodeSCanItem> AllSign)

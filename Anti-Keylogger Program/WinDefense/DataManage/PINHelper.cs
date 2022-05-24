@@ -80,7 +80,7 @@ namespace WinDefense.DataManage
             }
 
             /// <summary> 
-            /// AES解密 
+            /// AES encryption
             /// </summary>
             public static string AESDecrypt(string value, string _aeskey = null)
             {
@@ -110,7 +110,7 @@ namespace WinDefense.DataManage
             }
 
             /// <summary> 
-            /// DES加密 
+            /// DES encrytion
             /// </summary>
             public static string DESEncrypt(string value, string _deskey = null)
             {

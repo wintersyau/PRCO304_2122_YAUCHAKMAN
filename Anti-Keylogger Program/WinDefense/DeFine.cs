@@ -29,7 +29,7 @@ namespace WinDefense
 
         public static MainWindow WorkingWin = null;
 
-        private const bool TestStart = true;
+        private const bool TestStart = false;
 
         public static bool AdminRun()
         {

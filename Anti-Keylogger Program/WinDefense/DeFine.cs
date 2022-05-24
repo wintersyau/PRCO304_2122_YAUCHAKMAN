@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using JsonCore;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -20,16 +21,19 @@ namespace WinDefense
 {
     public class DeFine
     {
-        public static List<string> Trusts = new List<string>();
+
+        public static SystemSetting<WhiteItemInFo> LocalSetting = new SystemSetting<WhiteItemInFo>();
 
         public static int DangeCount = 0;
         public static bool SCaning = false;
 
         public static MainWindow WorkingWin = null;
 
+        private const bool TestStart = true;
 
         public static bool AdminRun()
         {
+            if (TestStart) return true;
             /**
     * 当前用户是管理员的时候，直接启动应用程序
     * 如果不是管理员，则使用启动对象启动程序，以确保使用管理员身份运行
@@ -111,6 +115,8 @@ namespace WinDefense
 
         public static void Initialization()
         {
+            LocalSetting = LocalSetting.GetLocal();
+
             //using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.connectionString))
             //{
             //    connection.Open();
@@ -171,7 +177,7 @@ namespace WinDefense
        
         public static void AnyExit()
         {
-         
+            LocalSetting.SetLocal();
 
             DeFine.WorkingWin.Dispatcher.Invoke(new Action(() => {
                 DeFine.WorkingWin.Close();
@@ -223,5 +229,98 @@ namespace WinDefense
         }
     }
 
+    public static class WhiteItemInFoExtend
+    {
+        private static bool WhiteListAction(this List<WhiteItemInFo> Sources, Action<List<WhiteItemInFo>, WhiteItemInFo> OneAction, string CRC)
+        {
+            for (int i = 0; i < Sources.Count; i++)
+            {
+                if (Sources[i].CRC.Equals(CRC))
+                {
+                    OneAction.Invoke(Sources, Sources[i]);
+                    return true;
+                }
+            }
+           
+            return false;
+        }
 
+        public static bool Remove(this List<WhiteItemInFo> Sources,string CRC)
+        {
+            return WhiteListAction(Sources,new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) =>
+            {
+                a.Remove(b);
+            }), CRC);
+        }
+
+        public static string GetProcessName(this WhiteItemInFo Source)
+        {
+            return Source.ProcessPath.Substring(Source.ProcessPath.LastIndexOf(@"\") + @"\".Length);
+        }
+
+        public static bool AddWhite(this List<WhiteItemInFo> Sources, string CRC)
+        {
+            return WhiteListAction(Sources, new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) =>
+            {
+                b.TrustByUser = true;
+            }), CRC);
+        }
+
+        public static bool CheckWhiteList(this List<WhiteItemInFo> Sources,string CRC)
+        {
+            return WhiteListAction(Sources, new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) => {}), CRC);
+        }
+    }
+
+    public class WhiteItemInFo
+    {
+        public string ProcessPath = "";
+        public string CRC = "";
+        public bool TrustByUser = false;
+        public WhiteItemInFo() { }
+
+        public WhiteItemInFo(string ProcessPath,ref string CRC32)
+        {
+            if (File.Exists(ProcessPath))
+            {
+                this.ProcessPath = ProcessPath;
+                this.CRC = FileToCRC32.GetFileCRC32(this.ProcessPath);
+                CRC32 = this.CRC;
+            }
+        }
+    }
+
+    public class SystemSetting<T> where T : new()
+    {
+        public List<T> WhiteList = new List<T>();
+
+        public SystemSetting() { }
+
+        public SystemSetting(List<T> A)
+        {
+            this.WhiteList = A;
+        }
+
+
+        public string SetLocal()
+        {
+            string GetJson = JsonHelper.GetJson(this);
+            GetJson = PINHelper.AESEncrypt(GetJson);
+            DataHelper.WriteFile(DeFine.GetFullPath(@"\", "Setting.dat"),Encoding.UTF8.GetBytes(GetJson));
+
+            return GetJson;
+        }
+
+        public SystemSetting<T> GetLocal()
+        {
+            string GetJson = DataHelper.ReadFileByStr(DeFine.GetFullPath(@"\", "Setting.dat"),Encoding.UTF8);
+            GetJson = PINHelper.AESDecrypt(GetJson);
+            var Source = JsonHelper.ProcessToJson<SystemSetting<T>>(GetJson);
+            if (Source == null)
+            {
+                return new SystemSetting<T>();
+            }
+            return Source;
+        }
+    }
 }

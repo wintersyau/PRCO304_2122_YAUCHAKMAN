@@ -101,6 +101,9 @@
     <Reference Include="Cake.Powershell, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.Powershell.1.0.1\lib\net46\Cake.Powershell.dll</HintPath>
     </Reference>
+    <Reference Include="JsonCore">
+      <HintPath>..\JsonCore\bin\x64\Debug\JsonCore.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -135,6 +138,7 @@
     </ApplicationDefinition>
     <Compile Include="ConvertManage\ConvertHelper.cs" />
     <Compile Include="DataManage\DataHelper.cs" />
+    <Compile Include="DataManage\PINHelper.cs" />
     <Compile Include="DeFine.cs" />
     <Compile Include="FormManage\FormHelper.cs" />
     <Compile Include="KernelManage\DriveLoader.cs" />

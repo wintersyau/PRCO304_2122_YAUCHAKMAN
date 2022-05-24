@@ -43,14 +43,9 @@ namespace WinDefense
                         {
                             string SelectedValue = ConvertHelper.ObjToStr(Whites.SelectedValue);
 
-                            if (SafeHelper.CheckProcessCache.Contains(SelectedValue))
+                            if (SelectedValue.Contains(">"))
                             {
-                                SafeHelper.CheckProcessCache.Remove(SelectedValue);
-                            }
-
-                            if (DeFine.Trusts.Contains(SelectedValue))
-                            {
-                                DeFine.Trusts.Remove(SelectedValue);
+                                DeFine.LocalSetting.WhiteList.Remove(SelectedValue.Split('>')[1]);
                             }
 
                             ReloadData();
@@ -65,11 +60,11 @@ namespace WinDefense
         {
             Whites.Items.Clear();
 
-            foreach (var Item in SafeHelper.CheckProcessCache)
+            foreach (var Item in DeFine.LocalSetting.WhiteList)
             {
-               if (DeFine.Trusts.Contains(Item))
+                if (Item.TrustByUser)
                 {
-                    Whites.Items.Add(Item);
+                    Whites.Items.Add(string.Format("{0}>{1}",Item.ProcessPath,Item.CRC));
                 }
              
             }

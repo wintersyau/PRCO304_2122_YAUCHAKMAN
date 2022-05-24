@@ -131,6 +131,10 @@ C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.CopyComplete
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.exe
 C:\Users\Winters\Documents\GitHub\PRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.pdb
-C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.AssemblyReference.cache
 C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WhiteListManage.g.cs
 C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WhiteListManage.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\JsonCore.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\JsonCore.pdb
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\WinDefense\obj\x64\Debug\WinDefense.csproj.AssemblyReference.cache

@@ -278,31 +278,22 @@ namespace WinDefense.SafeEngine
             return false;
         }
 
-        public static List<string> CheckProcessCache = new List<string>();//WhiteList 
 
         public static List<ProcessInFo> WaitProcessDangers = new List<ProcessInFo>();
         public static bool SCANProcess(bool IsBackGround,ProcessInFo OneInFo,string FilePath,ref int DangerScore,ref List<FileCodeSCanItem> AllSign)
         {
-            if (CheckProcessCache.Contains(OneInFo.FilePath))
-            {
-                return true;
-            }
-            else
-            {
-                CheckProcessCache.Add(OneInFo.FilePath);
-            }
-
             WhiteListItem FileCrc = null;
             string CRC32 = "";
 
+            WhiteItemInFo NWhiteItemInFo = new WhiteItemInFo();
+
             try 
             {
-                CRC32 = FileToCRC32.GetFileCRC32(FilePath);
-                FileCrc = SQLiteStruct.FindWhiteList(CRC32);
+                NWhiteItemInFo = new WhiteItemInFo(FilePath, ref CRC32);
+            } catch { return false; }
 
-            } catch { }
 
-            if (FileCrc == null)
+            if (!DeFine.LocalSetting.WhiteList.CheckWhiteList(CRC32))
             {
                 if (CRC32.Trim().Length > 0)
                 {
@@ -318,7 +309,7 @@ namespace WinDefense.SafeEngine
                         if (File.Exists(FilePath))
                         {
                             bool IsStop = false;
-  
+
                             string Subject = string.Empty;
 
                             if (VerifyAuthenticodeSignature(FilePath, ref Subject))
@@ -335,8 +326,8 @@ namespace WinDefense.SafeEngine
                             AllSign = NewSCan(FilePath);
 
                             //Check Process Dll
-                          
-                            
+
+
                             string DLLFilePath = FilePath.Substring(0, FilePath.LastIndexOf(@"\")) + @"\" + OneInFo.ProcessName + ".dll";
                             if (File.Exists(DLLFilePath))
                             {
@@ -354,10 +345,10 @@ namespace WinDefense.SafeEngine
                                         SafeExtend.ScanFileByProcessPath(Get, ref AllSign);
                                     }
                                 }
-                               
+
                             }
 
-                            SafeExtend.ScanFileByProcessPath(FilePath,ref AllSign);
+                            SafeExtend.ScanFileByProcessPath(FilePath, ref AllSign);
 
                             foreach (var GetSign in AllSign)
                             {
@@ -366,17 +357,18 @@ namespace WinDefense.SafeEngine
 
                             if (DangerScore < 45)
                             {
-                                try
-                                { 
-
-                                if (SQLiteStruct.AddWhiteList(new WhiteListItem(CRC32, OneInFo.ProcessName, "System", "NoCheck", "NoCheck")))
+                                if (IsStop)
                                 {
-                                    if (IsStop)
-                                    {
-                                        ProcessOperation.SuperByControlProcess(OneInFo.Pid, true);
-                                    }
+                                    ProcessOperation.SuperByControlProcess(OneInFo.Pid, true);
                                 }
 
+                                try
+                                {
+
+                                    if (SQLiteStruct.AddWhiteList(new WhiteListItem(CRC32, OneInFo.ProcessName, "System", "NoCheck", "NoCheck")))
+                                    {
+                                       
+                                    }
                                 }
                                 catch { }
                             }
@@ -391,14 +383,14 @@ namespace WinDefense.SafeEngine
                                 List<FileCodeSCanItem> NFileCodeSCanItem = new List<FileCodeSCanItem>();
                                 NFileCodeSCanItem.AddRange(AllSign);
 
-                                FormHelper.WorkingWin.Dispatcher.Invoke(new Action(()=> {
+                                FormHelper.WorkingWin.Dispatcher.Invoke(new Action(() => {
                                     OneAction NOneAction = new OneAction();
                                     NOneAction.Hide();
                                     NOneAction.SetDanger(OneInFo, NFileCodeSCanItem);
 
                                     NOneAction.Show();
                                 }));
-                               
+
 
 
                             }
@@ -410,15 +402,10 @@ namespace WinDefense.SafeEngine
                         DangerScore -= 25;
                     }
                 }
-            }
-            else
-            {
-                //White list
-                DangerScore = 0;
-                AllSign.Clear();
-            }
 
-
+                DeFine.LocalSetting.WhiteList.Add(NWhiteItemInFo);
+            }
+        
             return false;
         }
     }

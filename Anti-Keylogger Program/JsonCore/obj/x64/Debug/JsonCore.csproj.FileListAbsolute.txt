@@ -1,0 +1,9 @@
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\bin\x64\Debug\JsonCore.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\bin\x64\Debug\JsonCore.pdb
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\obj\x64\Debug\JsonCore.csproj.AssemblyReference.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\obj\x64\Debug\JsonCore.csproj.CoreCompileInputs.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\obj\x64\Debug\JsonCore.csproj.CopyComplete
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\obj\x64\Debug\JsonCore.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\Anti-Keylogger Program\JsonCore\obj\x64\Debug\JsonCore.pdb

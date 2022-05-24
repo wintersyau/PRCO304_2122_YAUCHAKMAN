@@ -1,0 +1,59 @@
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\Interop.Shell32.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.csproj.ResolveComReference.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\App.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.lref
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\WintersInstallManager.exe.config
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\WintersInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\WintersInstallManager.pdb
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.g.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.Properties.Resources.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.csproj.GenerateResource.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.csproj.CoreCompileInputs.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\WintersInstallManager.pdb
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.exe.config
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.pdb
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\Interop.Shell32.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.ResolveComReference.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\MainWindow.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\ShowAgreement.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\App.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.lref
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\MainWindow.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\ShowAgreement.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.g.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.Properties.Resources.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.GenerateResource.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.CoreCompileInputs.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.pdb
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.AssemblyReference.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.exe.config
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.exe
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\bin\Debug\WintersInstallManager.pdb
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.AssemblyReference.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\Interop.Shell32.dll
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.ResolveComReference.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\MainWindow.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\ShowAgreement.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\App.g.cs
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager_MarkupCompile.lref
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\MainWindow.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\ShowAgreement.baml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.g.resources
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.Properties.Resources.resources
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.GenerateResource.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.csproj.CoreCompileInputs.cache
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.exe
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\MuInstallManager\WintersInstallManager\obj\Debug\WintersInstallManager.pdb

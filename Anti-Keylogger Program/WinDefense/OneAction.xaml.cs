@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using WinDefense.ConvertManage;
 using WinDefense.KernelManage;
 using WinDefense.ProcessControl;
+using WinDefense.SafeEngine;
 using WinDefense.SQLManage;
 
 namespace WinDefense
@@ -55,10 +56,7 @@ namespace WinDefense
 
         private void PassProcess(object sender, RoutedEventArgs e)
         {
-            if (SafeEngine.SafeHelper.CheckProcessCache.Contains(CurrentInFo.FilePath))
-            {
-                SafeEngine.SafeHelper.CheckProcessCache.Remove(CurrentInFo.FilePath);
-            }
+            DeFine.LocalSetting.WhiteList.Remove(FileToCRC32.GetFileCRC32(CurrentInFo.FilePath));
 
             DeFine.DangeCount++;
             ProcessOperation.SuperByControlProcess(CurrentInFo.Pid, true);
@@ -101,10 +99,7 @@ namespace WinDefense
 
         private void TrustProcess(object sender, RoutedEventArgs e)
         {
-            if (!DeFine.Trusts.Contains(CurrentInFo.FilePath))
-            {
-                DeFine.Trusts.Add(CurrentInFo.FilePath);
-            }
+            DeFine.LocalSetting.WhiteList.AddWhite(FileToCRC32.GetFileCRC32(CurrentInFo.FilePath));
 
             ProcessOperation.SuperByControlProcess(CurrentInFo.Pid, true);
             this.Close();

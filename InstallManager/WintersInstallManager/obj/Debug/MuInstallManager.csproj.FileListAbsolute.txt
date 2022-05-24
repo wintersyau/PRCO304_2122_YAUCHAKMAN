@@ -1,0 +1,62 @@
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.exe.config
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.exe
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.pdb
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\App.g.cs
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.cache
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.lref
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.baml
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.g.resources
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.Properties.Resources.resources
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.exe
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.pdb
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.ResolveComReference.cache
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.CopyComplete
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.g.cs
+C:\Users\Administrator\source\repos\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.baml
+D:\YSCode\MuInstall\MuInstallManager\bin\Debug\MuInstallManager.exe.config
+D:\YSCode\MuInstall\MuInstallManager\bin\Debug\MuInstallManager.exe
+D:\YSCode\MuInstall\MuInstallManager\bin\Debug\MuInstallManager.pdb
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.csproj.ResolveComReference.cache
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MainWindow.g.cs
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\ShowAgreement.g.cs
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\App.g.cs
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.cache
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.lref
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MainWindow.baml
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\ShowAgreement.baml
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.g.resources
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.Properties.Resources.resources
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.csproj.GenerateResource.cache
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.csproj.CoreCompileInputs.cache
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.exe
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.pdb
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\Interop.Shell32.dll
+D:\YSCode\MuInstall\MuInstallManager\obj\Debug\MuInstallManager.csproj.AssemblyReference.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.exe.config
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\bin\Debug\MuInstallManager.pdb
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.AssemblyReference.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\Interop.Shell32.dll
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.ResolveComReference.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\App.g.cs
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager_MarkupCompile.lref
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MainWindow.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\ShowAgreement.baml
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.g.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.Properties.Resources.resources
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.GenerateResource.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.csproj.CoreCompileInputs.cache
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.exe
+C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\MuInstallManager\obj\Debug\MuInstallManager.pdb

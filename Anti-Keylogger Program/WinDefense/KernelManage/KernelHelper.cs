@@ -53,7 +53,7 @@ namespace WinDefense.KernelManage
         public static extern bool unloadDvr(StringBuilder serviceName);
 
 
-        public static Queue<ThreadPrRecvItem> MsgPrRecvItems = new Queue<ThreadPrRecvItem>(); //显示给前端的进程缓冲队列
+        public static Queue<ThreadPrRecvItem> MsgPrRecvItems = new Queue<ThreadPrRecvItem>(); 
 
 
         [HandleProcessCorruptedStateExceptions]

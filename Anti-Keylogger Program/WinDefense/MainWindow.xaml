@@ -61,7 +61,7 @@
                 <StackPanel Orientation="Horizontal" Grid.Column="0">
                     <Label Foreground="White" FontSize="15" Margin="5 0 0 0" VerticalAlignment="Center">WinDefense</Label>
 
-                    <Label Foreground="White" FontSize="11" VerticalAlignment="Center" Margin="-7 3 0 0"> - RAMSecurity</Label>
+                    <Label Foreground="White" FontSize="11" VerticalAlignment="Center" Margin="-7 3 0 0"> - Anti-Keylogger Program</Label>
 
                 </StackPanel>
 

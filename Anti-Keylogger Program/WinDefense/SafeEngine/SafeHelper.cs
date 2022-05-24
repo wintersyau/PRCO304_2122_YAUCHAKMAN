@@ -23,7 +23,7 @@ namespace WinDefense.SafeEngine
         public static void Initialization()
         {
             //return;
-            //A=pay attention B=significant C=take action immediatelys
+            //A=pay attention B=significant C=take action immediately
             try { 
             new FileCodeSCanItem("SetWindowsHookEx", 30, "Install Overall Hook !", "Hook.C").InsertDateToDB();
             new FileCodeSCanItem("CallNextHookEx", 20, "Passes the hook information to the next hook procedure in the current hook chain.", "Hook.A").InsertDateToDB();

@@ -44,7 +44,7 @@ namespace WinDefense.KernelManage
             try 
             {
             if (Process.GetProcessById(Pid) == null) return false;
-            return KernelHelper.SendMsgToSuperSys("Z"+Pid.ToString()); //执行内存清0
+            return KernelHelper.SendMsgToSuperSys("Z"+Pid.ToString()); //empty the process
             }
             catch { return false; }
         }

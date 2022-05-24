@@ -264,7 +264,7 @@ namespace WinDefense.DataManage
                 }
                 catch
                 {
-                    result = "非法";
+                    result = "Illegal";
                 }
 
                 return result;

@@ -28,7 +28,7 @@ namespace WinDefense.SafeEngine
         public static void ScanFileByProcessPath(string SourcePath, ref List<FileCodeSCanItem> FileCodeItem)
         {
             var TempSign = SafeHelper.NewSCan(SourcePath);
-
+            if(TempSign!=null)
             foreach (var Get in TempSign)
             {
                 if (!FileCodeItem.Contains(Get))

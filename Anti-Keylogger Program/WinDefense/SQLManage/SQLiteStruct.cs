@@ -229,6 +229,7 @@ namespace WinDefense.SQLManage
         public string Describe = "";
         public string ShortTittle = "";
 
+        public FileCodeSCanItem() { }
         public FileCodeSCanItem(string KeyStr, int DangerPoint,string Describe,string ShortTittle)
         {
             this.KeyStr = KeyStr;

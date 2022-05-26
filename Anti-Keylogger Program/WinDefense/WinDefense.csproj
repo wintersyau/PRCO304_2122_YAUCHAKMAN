@@ -137,6 +137,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConvertManage\ConvertHelper.cs" />
+    <Compile Include="DataManage\AutoSave.cs" />
     <Compile Include="DataManage\DataHelper.cs" />
     <Compile Include="DataManage\PINHelper.cs" />
     <Compile Include="DeFine.cs" />

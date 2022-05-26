@@ -102,7 +102,7 @@ namespace WinDefense
             }
         }
 
-        public static int MaxProcessSafeCheckThread = 5;
+        public static int MaxProcessSafeCheckThread = 7;
 
         public const string DrivePath = @"\Driver\Tools\";
         public static string GetFullPath(string Path,string Name)
@@ -116,6 +116,8 @@ namespace WinDefense
         public static void Initialization()
         {
             LocalSetting = LocalSetting.GetLocal();
+
+            AutoSave.StartAutoSaveService(true);
 
             //using (SQLiteConnection connection = new SQLiteConnection(SQLiteHelper.connectionString))
             //{
@@ -172,6 +174,9 @@ namespace WinDefense
                 ProcessListener.StatrProcessListenService(true);
                 ProcessHelper.StartProcessProcessService(true);
             }
+
+
+            ProcessOperation.UPLevel(Process.GetCurrentProcess().Id);
         }
 
        
@@ -245,11 +250,28 @@ namespace WinDefense
             return false;
         }
 
+        public static WhiteItemInFo WhiteListAction(this List<WhiteItemInFo> Sources, Action<List<WhiteItemInFo>, WhiteItemInFo> OneAction, string CRC,ref bool State)
+        {
+            for (int i = 0; i < Sources.Count; i++)
+            {
+                if (Sources[i].CRC.Equals(CRC))
+                {
+                    OneAction.Invoke(Sources, Sources[i]);
+                    State = true;
+                    return Sources[i];
+                }
+            }
+
+            State = false;
+            return null;
+        }
+
+
         public static bool Remove(this List<WhiteItemInFo> Sources,string CRC)
         {
             return WhiteListAction(Sources,new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) =>
             {
-                a.Remove(b);
+                b.TrustByUser = false;
             }), CRC);
         }
 
@@ -270,13 +292,22 @@ namespace WinDefense
         {
             return WhiteListAction(Sources, new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) => {}), CRC);
         }
+
+        public static bool CheckWhiteList(this List<WhiteItemInFo> Sources, string CRC,ref WhiteItemInFo OneInFo)
+        {
+            bool State = false;
+            OneInFo = WhiteListAction(Sources, new Action<List<WhiteItemInFo>, WhiteItemInFo>((a, b) => { }), CRC,ref State);
+            return State;
+        }
     }
 
     public class WhiteItemInFo
     {
         public string ProcessPath = "";
         public string CRC = "";
+        public int DangeScore = 0;
         public bool TrustByUser = false;
+        public List<FileCodeSCanItem> Accesss = null;
         public WhiteItemInFo() { }
 
         public WhiteItemInFo(string ProcessPath,ref string CRC32)

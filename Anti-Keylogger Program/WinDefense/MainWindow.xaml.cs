@@ -32,6 +32,7 @@ namespace WinDefense
         public MainWindow()
         {
             InitializeComponent();
+            DeFine.WorkingWin = this;
         }
 
 
@@ -53,7 +54,7 @@ namespace WinDefense
                 //return;
                 this.Show();
 
-                DeFine.WorkingWin = this;
+               
 
                 NotifyIconHelper.Init(this, "WinDefense");
 

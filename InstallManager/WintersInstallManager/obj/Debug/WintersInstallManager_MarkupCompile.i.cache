@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\obj\Debug\
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\InstallManager\WintersInstallManager\obj\Debug\
 WintersInstallManager
 none
 false
 DEBUG;TRACE
-C:\Users\LAB\Desktop\New folder\New folder\MuInstallManager\WintersInstallManager\App.xaml
+C:\Users\LAB\source\repos\NPRCO304_2122_YAUCHAKMAN\InstallManager\WintersInstallManager\App.xaml
 2-1437279411
 
 11-1561607518
 19615992202
 MainWindow.xaml;ShowAgreement.xaml;
 
-False
+True
 

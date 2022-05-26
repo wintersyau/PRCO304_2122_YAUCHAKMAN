@@ -193,6 +193,9 @@ namespace WinDefense.SafeEngine
 
         public static List<FileCodeSCanItem> NewSCan(string FilePath)
         {
+            
+            if (new FileInfo(FilePath).Length > ( (1024 * 1024) * 5)) return null;//Skip Big File (5MB)
+
             List<FileCodeSCanItem> FileCodeSCanItems = new List<FileCodeSCanItem>();
 
             try {
@@ -292,8 +295,9 @@ namespace WinDefense.SafeEngine
                 NWhiteItemInFo = new WhiteItemInFo(FilePath, ref CRC32);
             } catch { return false; }
 
+            WhiteItemInFo OneItemInFo = null;
 
-            if (!DeFine.LocalSetting.WhiteList.CheckWhiteList(CRC32))
+            if (!DeFine.LocalSetting.WhiteList.CheckWhiteList(CRC32,ref OneItemInFo))
             {
                 if (CRC32.Trim().Length > 0)
                 {
@@ -367,10 +371,11 @@ namespace WinDefense.SafeEngine
 
                                     if (SQLiteStruct.AddWhiteList(new WhiteListItem(CRC32, OneInFo.ProcessName, "System", "NoCheck", "NoCheck")))
                                     {
-                                       
+
                                     }
                                 }
                                 catch { }
+                             
                             }
                             else
                             {
@@ -383,7 +388,10 @@ namespace WinDefense.SafeEngine
                                 List<FileCodeSCanItem> NFileCodeSCanItem = new List<FileCodeSCanItem>();
                                 NFileCodeSCanItem.AddRange(AllSign);
 
-                                FormHelper.WorkingWin.Dispatcher.Invoke(new Action(() => {
+                                NWhiteItemInFo.DangeScore = DangerScore;
+
+                                FormHelper.WorkingWin.Dispatcher.Invoke(new Action(() =>
+                                {
                                     OneAction NOneAction = new OneAction();
                                     NOneAction.Hide();
                                     NOneAction.SetDanger(OneInFo, NFileCodeSCanItem);
@@ -401,9 +409,28 @@ namespace WinDefense.SafeEngine
                     {
                         DangerScore -= 25;
                     }
-                }
 
-                DeFine.LocalSetting.WhiteList.Add(NWhiteItemInFo);
+                    NWhiteItemInFo.Accesss = AllSign;
+                    NWhiteItemInFo.DangeScore = DangerScore;
+                    DeFine.LocalSetting.WhiteList.Add(NWhiteItemInFo);
+                }
+            }
+            else
+            {
+                if (OneItemInFo.DangeScore > 45)
+                {
+                    if (!OneItemInFo.TrustByUser)
+                    {
+                        FormHelper.WorkingWin.Dispatcher.Invoke(new Action(() =>
+                        {
+                            OneAction NOneAction = new OneAction();
+                            NOneAction.Hide();
+                            NOneAction.SetDanger(OneInFo, OneItemInFo.Accesss);
+
+                            NOneAction.Show();
+                        }));
+                    }
+                }
             }
         
             return false;

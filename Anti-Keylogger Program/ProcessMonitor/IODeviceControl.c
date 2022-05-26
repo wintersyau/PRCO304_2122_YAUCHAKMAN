@@ -125,7 +125,9 @@ NTSTATUS DeviceControlCompleteRoutine(PDEVICE_OBJECT pDeviceObject, PIRP pIrp)
 				{
 					PPROCESSNODE pNode = (PPROCESSNODE)ExInterlockedRemoveHeadList(&g_ListHead, &g_Lock);
 
-					// If you get the node, it will be passed to the application layer. You can directly assign a value in Pbuffer, and the DeviceIoControl of the application layer can receive the data
+					// If you get the node, it will be passed to the application layer. You can directly assign a value in Pbuffer,
+					// and the DeviceIoControl of the application layer can receive the data
+
 					if (NULL != pNode)
 					{
 						PPROCESSINFO	pOutputBuffer = (PPROCESSINFO)pBuffer;

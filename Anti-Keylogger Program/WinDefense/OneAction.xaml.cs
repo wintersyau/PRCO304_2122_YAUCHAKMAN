@@ -74,17 +74,25 @@ namespace WinDefense
                 catch { }
                 ProcessOperation.SuperByKillProcess(CurrentInFo.Pid);
 
-                try { 
+                try 
+                { 
+
                 if (File.Exists(CurrentInFo.FilePath))
                 {
                         if (MessageBox.Show(string.Format("Delete {0} ?", CurrentInFo.ProcessName), "Action", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
+                            try 
+                            { 
+
                             FileSystem.DeleteFile(CurrentInFo.FilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                           
+                            }
+                            catch { }
                         }
-                       
                 }
 
                 this.Close();
+
                 }
                 catch { }
             }

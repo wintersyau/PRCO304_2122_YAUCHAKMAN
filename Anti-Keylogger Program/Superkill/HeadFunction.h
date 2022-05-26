@@ -254,7 +254,8 @@ void SetProcessLevel(ULONG Pid, ULONG Level)
 
 	PHANDLE CurrentProcess = PidToHandle(Pid);
 
-	NTSTATUS Status = ZwOpenProcessTokenEx(CurrentProcess, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, OBJ_KERNEL_HANDLE, &Token);	//Open the access token associated with a process
+	NTSTATUS Status = ZwOpenProcessTokenEx(CurrentProcess, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, OBJ_KERNEL_HANDLE, &Token);	
+	//Open the access token associated with a process
 	//"ZwOpenProcessTokenEx Succeed!"
 	TOKEN_PRIVILEGES _TP;
 	_TP.PrivilegeCount = 1;

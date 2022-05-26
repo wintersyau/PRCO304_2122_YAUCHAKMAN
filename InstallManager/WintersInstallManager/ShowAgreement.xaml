@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WintersInstallManager"
         mc:Ignorable="d"
-        Title="M游用户协议" Height="550" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Topmost="True">
+        Title="Acknowledgement" Height="550" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Topmost="True">
     <Grid>
-        <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Name="OneText" FontSize="15">
-           
+        <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Name="OneText" FontSize="15" TextChanged="OneText_TextChanged">
+                  I would like to express my special thanks of gratitude to my supervisors Dr. Hai-van Dang and Dr. Beta Yip who gave me the opportunity to do this computer project on the topic of Develop an Anti-Keylogger Program (AKP), which also helped me in doing a lot of Research and i came to know about so many new things I am really thankful to them.
         </TextBox>
     </Grid>
 </Window>

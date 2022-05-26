@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace WintersInstallManager
 {
     /// <summary>
-    /// ShowAgreement.xaml 的交互逻辑
+    /// ShowAgreement.xaml 
     /// </summary>
     public partial class ShowAgreement : Window
     {
@@ -33,6 +33,11 @@ namespace WintersInstallManager
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             InstallHelper.Agreement = false;
+        }
+
+        private void OneText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }

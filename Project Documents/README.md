@@ -7,4 +7,8 @@ For the program languages in writing up the program, I would like to research th
 As mentioned above, there are some paid or free anti-free Keyloggers program in the market, we did not know the level of safety.  Thus the methods of my project may be 1) Develop a new Anti-Keylogger program or 2) Refine and amend the existing program for better functions.  It may be confirmed once the project is approved and discussed with my supervisor after complete the research.
 
 
+UK Supervisor: Dr. Hai-Van Dang
+HK Supervisor: Dr. Beta Yip
 
+Trello:  
+https://trello.com/invite/b/RuN4y8Yw/932ef72b556c26b6fd4455517dee2250/fyp-anti-keylogger-program  
